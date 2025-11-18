@@ -4,6 +4,8 @@ import StudentDashboard from "./pages/StudentDashboard"
 import AdviserDashboard from "./pages/AdviserDashboard"
 import Documents from "./pages/Documents"
 import Consultations from "./pages/Consultations"
+import Progress from "./pages/Progress"
+import Notifications from "./pages/Notifications"
 
 function Landing() {
   return (
@@ -17,6 +19,8 @@ function Landing() {
           <Link to="/adviser" className="px-4 py-2 rounded-lg border border-black/10">Adviser Dashboard</Link>
           <Link to="/documents" className="px-4 py-2 rounded-lg border border-black/10">Documents</Link>
           <Link to="/consultations" className="px-4 py-2 rounded-lg border border-black/10">Consultations</Link>
+          <Link to="/progress" className="px-4 py-2 rounded-lg border border-black/10">Progress</Link>
+          <Link to="/notifications" className="px-4 py-2 rounded-lg border border-black/10">Notifications</Link>
         </div>
       </div>
     </div>
@@ -32,6 +36,8 @@ export default function App() {
       <Route path="/adviser" element={<AdviserDashboard />} />
       <Route path="/documents" element={<Documents />} />
       <Route path="/consultations" element={<Consultations />} />
+      <Route path="/progress" element={<Progress />} />
+      <Route path="/notifications" element={<Notifications />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )

@@ -1,5 +1,6 @@
 import { Menu, Bell, LogOut, User } from "lucide-react"
 import { Link } from "react-router-dom"
+import BrandHeader from "./BrandHeader"
 
 export default function Layout({ sidebar, children }) {
   return (
@@ -7,20 +8,23 @@ export default function Layout({ sidebar, children }) {
       <header className="sticky top-0 z-30 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-black/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <button className="p-2 rounded-lg border border-black/5 bg-white shadow-sm md:hidden">
+            <button className="p-2 rounded-lg border border-black/5 bg-white shadow-sm md:hidden" aria-label="Toggle menu">
               <Menu className="w-5 h-5 text-[#0c356a]" />
             </button>
-            <Link to="/" className="text-xl font-extrabold tracking-tight text-[#0c356a]">ACADTRACK</Link>
+            <Link to="/" className="hidden sm:block">
+              <BrandHeader />
+            </Link>
+            <Link to="/" className="sm:hidden text-xl font-extrabold tracking-tight text-[#0c356a]">ACADTRACK</Link>
           </div>
           <div className="flex items-center gap-2">
-            <button className="relative p-2 rounded-lg hover:bg-black/5">
+            <Link to="/notifications" className="relative p-2 rounded-lg hover:bg-black/5" aria-label="Notifications">
               <Bell className="w-5 h-5 text-[#0c356a]" />
               <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#279eff]"></span>
-            </button>
-            <button className="p-2 rounded-lg hover:bg-black/5">
+            </Link>
+            <button className="p-2 rounded-lg hover:bg-black/5" aria-label="Account">
               <User className="w-5 h-5 text-[#0c356a]" />
             </button>
-            <button className="p-2 rounded-lg hover:bg-black/5">
+            <button className="p-2 rounded-lg hover:bg-black/5" aria-label="Logout">
               <LogOut className="w-5 h-5 text-[#0c356a]" />
             </button>
           </div>
